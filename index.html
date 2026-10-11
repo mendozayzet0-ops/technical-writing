@@ -1,0 +1,1119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Writing | Mendoza, Yzet</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --teal: #399d9e;
+  --dark: #275b5e;
+  --mint: #e5f5f2;
+  --green: #b8dfa9;
+  --ink: #263436;
+  --muted: #637677;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: #f9fcfb;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: #eff9f7;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #d9ece8;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 21px;
+  color: #244e51;
+  font-weight: bold;
+}
+
+.logo-symbol {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--teal);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: var(--teal);
+  font-size: 14px;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  font-size: 14px;
+  color: #40595a;
+}
+
+nav a:hover {
+  color: var(--teal);
+}
+
+.menu-btn {
+  display: none;
+  background: white;
+  border: 1px solid #cde4df;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 22px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse, #fff 5%, #eff9f7 60%, #d8f0ec);
+}
+
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(43px, 7vw, 76px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  color: var(--muted);
+}
+
+.hero:before,
+.hero:after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 2px solid #b9e4df;
+  border-radius: 50%;
+}
+
+.hero:before {
+  left: -150px;
+  bottom: -120px;
+  box-shadow: 0 0 0 18px #d9f0ec, 0 0 0 36px #e9f7f4;
+}
+
+.hero:after {
+  right: -150px;
+  top: -120px;
+  box-shadow: 0 0 0 18px #d9f0ec, 0 0 0 36px #e9f7f4;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  background: var(--teal);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+.btn-light {
+  background: white;
+  color: var(--dark);
+  border: 1px solid #b9deda;
+}
+
+section {
+  padding: 75px 7%;
+  scroll-margin-top: 75px;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 38px;
+}
+
+.section-title h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(29px, 4vw, 41px);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.lecture-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.topic-link {
+  background: white;
+  border: 1px solid #dcece8;
+  border-radius: 10px;
+  padding: 22px;
+  transition: .2s;
+}
+
+.topic-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px #245c5b12;
+}
+
+.topic-link span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.topic-link h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 8px 0;
+}
+
+.topic-link p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.lesson {
+  max-width: 1050px;
+  margin: 0 auto 32px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #dcece8;
+  border-radius: 12px;
+  scroll-margin-top: 95px;
+}
+
+.lesson-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 17px;
+}
+
+.lesson-number {
+  flex-shrink: 0;
+  background: var(--mint);
+  color: var(--dark);
+  width: 43px;
+  height: 43px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.lesson h3 {
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.lesson h4 {
+  color: var(--dark);
+  margin: 20px 0 8px;
+}
+
+.lesson p,
+.lesson li {
+  font-size: 14px;
+  color: #526869;
+}
+
+.lesson ul,
+.lesson ol {
+  padding-left: 23px;
+}
+
+.example {
+  background: #eff8f6;
+  border-left: 4px solid var(--teal);
+  padding: 16px 18px;
+  margin-top: 17px;
+  border-radius: 0 8px 8px 0;
+}
+
+.example strong {
+  color: var(--dark);
+}
+
+.abc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.abc-item {
+  padding: 12px;
+  background: #f5faf9;
+  border-radius: 7px;
+  font-size: 13px;
+  color: #526869;
+}
+
+.abc-item strong {
+  color: var(--dark);
+}
+
+.outline-tree {
+  background: #f1f8f6;
+  padding: 22px;
+  border-radius: 10px;
+  margin-top: 18px;
+}
+
+.tree-root {
+  text-align: center;
+  background: var(--dark);
+  color: white;
+  border-radius: 7px;
+  padding: 12px;
+  font-weight: bold;
+}
+
+.tree-branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.tree-branches div {
+  background: white;
+  border: 1px solid #cfe5df;
+  border-radius: 7px;
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #dcece8;
+  font-size: 13px;
+  vertical-align: top;
+}
+
+th {
+  background: #368e8e;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background: #f2f9f7;
+}
+
+.letter-sample {
+  max-width: 600px;
+  background: white;
+  border: 1px solid #d8e8e4;
+  padding: 24px;
+  margin-top: 17px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.letter-sample .part {
+  background: #e4f5f1;
+  color: #246e70;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.chart-box {
+  border: 1px solid #dcece8;
+  border-radius: 10px;
+  padding: 17px;
+  background: white;
+  min-width: 0;
+}
+
+.chart-box h4 {
+  margin: 0 0 10px;
+}
+
+.chart-box svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ABOUT US PROFILES */
+.about-profile,
+.teacher-profile {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 25px;
+  align-items: center;
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 30px;
+  background: #f0f9f7;
+  border: 1px solid #d5ebe6;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(39, 91, 94, 0.06);
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #b9e2dc;
+  display: block;
+  margin: 0 auto;
+  background: #e5f5f2;
+}
+
+.about-profile h3,
+.teacher-information h3 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  margin: 5px 0;
+  color: var(--dark);
+}
+
+.about-profile p,
+.teacher-information p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+
+.teacher-position {
+  color: var(--teal) !important;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+/* CONTACT INFO */
+.contact-section {
+  background: #e9f6f3;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  border: 1px solid #d7eae5;
+}
+
+.contact-card h3 {
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.contact-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.contact-card a:not(.btn) {
+  color: #247f80;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  background: #28575a;
+  color: white;
+  padding: 25px 15px;
+  font-size: 13px;
+}
+
+footer p + p {
+  color: #c9e6e0;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 10px 0;
+    width: 100%;
+    border-top: 1px solid #dcece8;
+  }
+
+  .lecture-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .abc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .lecture-nav {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+
+  .lesson {
+    padding: 20px;
+  }
+
+  .tree-branches {
+    grid-template-columns: 1fr;
+  }
+
+  .about-profile,
+  .teacher-profile,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home" class="logo">
+    <span class="logo-symbol">TW</span>
+    <span>Technical Writing</span>
+  </a>
+
+  <button class="menu-btn" aria-label="Open navigation"
+          aria-expanded="false">☰</button>
+
+  <nav id="navigation">
+    <a href="#home">Home</a>
+    <a href="#lectures">Lectures</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Info</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- PAGE 1: HOME -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">LEARN • WRITE • COMMUNICATE</div>
+    <h1>Technical Writing</h1>
+
+    <p>
+      Welcome to our Technical Writing learning website!
+      Discover how to present information clearly, organize ideas,
+      prepare professional documents, and communicate effectively.
+      This website provides lessons and examples to help students
+      improve their technical writing skills.
+    </p>
+
+    <a class="btn" href="#lectures">Explore the Lectures →</a>
+    <a class="btn btn-light" href="#about">About Us</a>
+  </div>
+</section>
+
+<!-- PAGE 2: LECTURES -->
+<section id="lectures">
+  <div class="section-title">
+    <div class="eyebrow">COURSE MATERIALS</div>
+    <h2>Technical Writing Lectures</h2>
+    <p>Select a topic to read its definition, explanation, and examples.</p>
+  </div>
+
+  <div class="lecture-nav">
+    <a class="topic-link" href="#lecture1">
+      <span>LECTURE 01</span>
+      <h3>Technical Writing: Definition and Purpose</h3>
+      <p>Understand what technical writing is and why it is important.</p>
+    </a>
+
+    <a class="topic-link" href="#lecture2">
+      <span>LECTURE 02</span>
+      <h3>ABC's of Technical Writing</h3>
+      <p>Learn the principles of effective technical communication.</p>
+    </a>
+
+    <a class="topic-link" href="#lecture3">
+      <span>LECTURE 03</span>
+      <h3>Outlining the Subject</h3>
+      <p>Arrange the main topic and supporting details logically.</p>
+    </a>
+
+    <a class="topic-link" href="#lecture4">
+      <span>LECTURE 04</span>
+      <h3>Types of Technical Paper</h3>
+      <p>Explore reports, manuals, proposals, and other documents.</p>
+    </a>
+
+    <a class="topic-link" href="#lecture5">
+      <span>LECTURE 05</span>
+      <h3>The Basic English Structure</h3>
+      <p>Review basic sentence patterns and examples.</p>
+    </a>
+
+    <a class="topic-link" href="#lecture6">
+      <span>LECTURE 06</span>
+      <h3>Parts of a Letter</h3>
+      <p>Identify the parts of a formal business letter.</p>
+    </a>
+
+    <a class="topic-link" href="#lecture7">
+      <span>LECTURE 07</span>
+      <h3>Graphs and Charts</h3>
+      <p>Learn how visuals present data and comparisons.</p>
+    </a>
+  </div>
+</section>
+
+<!-- LECTURE 1 -->
+<article class="lesson" id="lecture1">
+  <div class="lesson-heading">
+    <span class="lesson-number">01</span>
+    <h3>Technical Writing: Definition and Purpose</h3>
+  </div>
+
+  <h4>Definition</h4>
+  <p>
+    Technical writing is a form of communication that explains
+    specialized information in a clear, accurate, organized,
+    and understandable way. It is commonly used in academic,
+    scientific, business, and technical fields.
+  </p>
+
+  <h4>Purpose of Technical Writing</h4>
+  <ul>
+    <li><strong>To inform:</strong> Provide facts, findings, or explanations.</li>
+    <li><strong>To instruct:</strong> Explain how to perform a task.</li>
+    <li><strong>To analyze:</strong> Present information and evaluate results.</li>
+    <li><strong>To recommend:</strong> Suggest solutions based on evidence.</li>
+  </ul>
+
+  <div class="example">
+    <strong>Example:</strong>
+    A user manual explains how to install and operate a printer.
+    Its purpose is to help the reader use the product correctly.
+  </div>
+</article>
+
+<!-- LECTURE 2 -->
+<article class="lesson" id="lecture2">
+  <div class="lesson-heading">
+    <span class="lesson-number">02</span>
+    <h3>ABC's of Technical Writing</h3>
+  </div>
+
+  <p>These principles help writers create useful, readable, accurate, and professional documents.</p>
+
+  <div class="abc-grid">
+    <div class="abc-item"><strong>Accuracy</strong> — Record data correctly.</div>
+    <div class="abc-item"><strong>Brevity</strong> — Be direct and concise.</div>
+    <div class="abc-item"><strong>Confidence</strong> — Communicate decisively.</div>
+    <div class="abc-item"><strong>Dignity</strong> — Treat readers courteously.</div>
+    <div class="abc-item"><strong>Facility</strong> — Make the report easy to understand.</div>
+    <div class="abc-item"><strong>Emphasis</strong> — Highlight important information.</div>
+    <div class="abc-item"><strong>Honesty</strong> — Cite sources and report truthfully.</div>
+    <div class="abc-item"><strong>Illustration</strong> — Use charts, graphs, and diagrams.</div>
+    <div class="abc-item"><strong>Judgment</strong> — Evaluate gathered information.</div>
+    <div class="abc-item"><strong>Knowledge</strong> — Gather relevant facts and data.</div>
+    <div class="abc-item"><strong>Logic</strong> — Arrange ideas using sound reasoning.</div>
+    <div class="abc-item"><strong>Mechanical Neatness</strong> — Keep the report neat and readable.</div>
+    <div class="abc-item"><strong>Normal Procedure</strong> — Follow accepted standards.</div>
+    <div class="abc-item"><strong>Objectivity</strong> — Avoid personal bias.</div>
+    <div class="abc-item"><strong>Planning</strong> — Establish purpose and direction.</div>
+    <div class="abc-item"><strong>Qualification</strong> — Evaluate which ideas to include.</div>
+    <div class="abc-item"><strong>Revision</strong> — Check grammar, spelling, and punctuation.</div>
+    <div class="abc-item"><strong>Straight Sentence</strong> — Write directly and use transitions appropriately.</div>
+    <div class="abc-item"><strong>Thoroughness</strong> — Provide sufficient details.</div>
+    <div class="abc-item"><strong>Unity</strong> — Maintain coherence among ideas.</div>
+    <div class="abc-item"><strong>Viewpoint</strong> — Establish the perspective of the writing.</div>
+    <div class="abc-item"><strong>Word Choice</strong> — Use clear, understandable words.</div>
+    <div class="abc-item"><strong>Zest</strong> — Write with energy and interest.</div>
+  </div>
+</article>
+
+<!-- LECTURE 3 -->
+<article class="lesson" id="lecture3">
+  <div class="lesson-heading">
+    <span class="lesson-number">03</span>
+    <h3>Outlining the Subject</h3>
+  </div>
+
+  <p>
+    An outline is a plan that organizes the main topic, major ideas,
+    and supporting details before writing a document.
+  </p>
+
+  <h4>Steps in Outlining</h4>
+  <ol>
+    <li>Identify the subject and purpose.</li>
+    <li>Determine the audience.</li>
+    <li>List the major points.</li>
+    <li>Add supporting details.</li>
+    <li>Arrange points in a logical sequence.</li>
+  </ol>
+
+  <div class="outline-tree">
+    <div class="tree-root">TOPIC: How to Use a Computer</div>
+    <div class="tree-branches">
+      <div><strong>I. Introduction</strong><br>Purpose and equipment</div>
+      <div><strong>II. Procedure</strong><br>Start, log in, and use</div>
+      <div><strong>III. Conclusion</strong><br>Save work and shut down</div>
+    </div>
+  </div>
+</article>
+
+<!-- LECTURE 4 -->
+<article class="lesson" id="lecture4">
+  <div class="lesson-heading">
+    <span class="lesson-number">04</span>
+    <h3>Types of Technical Paper</h3>
+  </div>
+
+  <p>Technical documents communicate specialized information for different purposes.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Purpose</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Technical Report</td><td>Present findings or project information.</td><td>Project evaluation</td></tr>
+        <tr><td>Contract</td><td>Record a formal agreement.</td><td>Service agreement</td></tr>
+        <tr><td>Feasibility Report</td><td>Evaluate whether a plan is practical.</td><td>Business study</td></tr>
+        <tr><td>Brochure</td><td>Promote a product or service.</td><td>Product brochure</td></tr>
+        <tr><td>Abstract</td><td>Summarize a longer document.</td><td>Research abstract</td></tr>
+        <tr><td>Instructional Manual</td><td>Explain procedures or product use.</td><td>User manual</td></tr>
+        <tr><td>Proposal</td><td>Recommend a plan or action.</td><td>Project proposal</td></tr>
+        <tr><td>Progress Report</td><td>Describe completed and remaining work.</td><td>Weekly report</td></tr>
+        <tr><td>Policy</td><td>State organizational rules.</td><td>School policy</td></tr>
+        <tr><td>Technical Journal Article</td><td>Present technical information for publication.</td><td>Journal article</td></tr>
+        <tr><td>Memorandum</td><td>Communicate within an organization.</td><td>Office memo</td></tr>
+        <tr><td>Monograph</td><td>Provide an in-depth study of one subject.</td><td>Scholarly work</td></tr>
+        <tr><td>Graphic Aids</td><td>Present information visually.</td><td>Chart or diagram</td></tr>
+        <tr><td>Specification</td><td>State technical requirements.</td><td>Equipment specifications</td></tr>
+        <tr><td>Printed Action Memo</td><td>Record an action on a prepared form.</td><td>Action form</td></tr>
+        <tr><td>Survey Report</td><td>Present survey findings.</td><td>Student survey</td></tr>
+        <tr><td>Trip Report</td><td>Document a professional trip.</td><td>Field visit report</td></tr>
+        <tr><td>Laboratory Report</td><td>Record methods and results.</td><td>Experiment report</td></tr>
+        <tr><td>Technical Paper</td><td>Discuss research or developments.</td><td>Research paper</td></tr>
+        <tr><td>Business Letter</td><td>Communicate formally in business.</td><td>Application letter</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Common Types of Business Letters</h4>
+  <ul>
+    <li>Sales letter</li>
+    <li>Order letter</li>
+    <li>Reply letter</li>
+    <li>Apology letter</li>
+    <li>Application letter</li>
+    <li>Complaint letter</li>
+    <li>Confirmation letter</li>
+    <li>Retrenchment letter</li>
+    <li>Resignation letter</li>
+    <li>Recommendation letter</li>
+  </ul>
+</article>
+
+<!-- LECTURE 5 -->
+<article class="lesson" id="lecture5">
+  <div class="lesson-heading">
+    <span class="lesson-number">05</span>
+    <h3>The Basic English Structure</h3>
+  </div>
+
+  <p>A basic English sentence usually contains a subject and a verb.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Pattern</th><th>Structure</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SV</td><td>Subject + Verb</td><td>The machine operates.</td></tr>
+        <tr><td>SVC</td><td>Subject + Verb + Complement</td><td>The result is accurate.</td></tr>
+        <tr><td>SVO</td><td>Subject + Verb + Object</td><td>The student writes a report.</td></tr>
+        <tr><td>SVOO</td><td>Subject + Verb + Indirect Object + Direct Object</td><td>The teacher gave the class an assignment.</td></tr>
+        <tr><td>SVOC</td><td>Subject + Verb + Object + Complement</td><td>The team found the solution useful.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<!-- LECTURE 6 -->
+<article class="lesson" id="lecture6">
+  <div class="lesson-heading">
+    <span class="lesson-number">06</span>
+    <h3>Parts of a Letter</h3>
+  </div>
+
+  <ol>
+    <li><strong>Heading / Return Address:</strong> Sender's address.</li>
+    <li><strong>Date:</strong> Date the letter was written.</li>
+    <li><strong>Inside Address:</strong> Recipient's name and address.</li>
+    <li><strong>Salutation:</strong> Formal greeting.</li>
+    <li><strong>Body:</strong> Main message.</li>
+    <li><strong>Complimentary Close:</strong> Polite closing.</li>
+    <li><strong>Signature and Typed Name:</strong> Sender's signature and name.</li>
+  </ol>
+
+  <div class="letter-sample">
+    <p><span class="part">Heading / Return Address</span><br>
+    123 Sample Street, Calapan City</p>
+
+    <p><span class="part">Date</span><br>October 12, 2026</p>
+
+    <p><span class="part">Inside Address</span><br>
+    Ma’an Elma Jane Mitante<br>Course Instructor</p>
+
+    <p><span class="part">Salutation</span><br>Dear Ma’am Mitante:</p>
+
+    <p><span class="part">Body</span><br>
+    I am writing to submit my Technical Writing website project
+    for your review. Thank you for your time and consideration.</p>
+
+    <p><span class="part">Complimentary Close</span><br>Sincerely,</p>
+
+    <p><span class="part">Signature / Typed Name</span><br>Mendoza, Yzet</p>
+  </div>
+</article>
+
+<!-- LECTURE 7 -->
+<article class="lesson" id="lecture7">
+  <div class="lesson-heading">
+    <span class="lesson-number">07</span>
+    <h3>Graphs and Charts</h3>
+  </div>
+
+  <p>
+    Graphs and charts present numerical information visually.
+    They help readers compare values and identify trends.
+  </p>
+
+  <h4>Common Types</h4>
+  <ul>
+    <li><strong>Bar graph:</strong> Compares quantities among categories.</li>
+    <li><strong>Line graph:</strong> Shows changes over time.</li>
+    <li><strong>Pie chart:</strong> Shows how a whole is divided into parts.</li>
+  </ul>
+
+  <div class="chart-grid">
+    <div class="chart-box">
+      <h4>Example 1: Bar Graph</h4>
+      <p style="font-size:12px">Sample students by preferred document</p>
+
+      <svg viewBox="0 0 320 205" role="img"
+           aria-label="Bar graph with sample data">
+        <line x1="48" y1="20" x2="48" y2="165" stroke="#829b99"/>
+        <line x1="48" y1="165" x2="305" y2="165" stroke="#829b99"/>
+        <g stroke="#e1eeeb">
+          <line x1="48" y1="125" x2="305" y2="125"/>
+          <line x1="48" y1="85" x2="305" y2="85"/>
+          <line x1="48" y1="45" x2="305" y2="45"/>
+        </g>
+        <g fill="#5e7b7b" font-size="10" text-anchor="end">
+          <text x="40" y="168">0</text>
+          <text x="40" y="128">5</text>
+          <text x="40" y="88">10</text>
+          <text x="40" y="48">15</text>
+        </g>
+        <rect x="78" y="69" width="45" height="96" rx="3" fill="#399d9e"/>
+        <rect x="158" y="101" width="45" height="64" rx="3" fill="#82c9be"/>
+        <rect x="238" y="117" width="45" height="48" rx="3" fill="#b8dfa9"/>
+        <g fill="#526869" font-size="11" text-anchor="middle">
+          <text x="100" y="184">Reports</text>
+          <text x="180" y="184">Manuals</text>
+          <text x="260" y="184">Letters</text>
+          <text x="100" y="61">12</text>
+          <text x="180" y="93">8</text>
+          <text x="260" y="109">6</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="chart-box">
+      <h4>Example 2: Pie Chart</h4>
+      <p style="font-size:12px">Sample allocation of study time</p>
+
+      <svg viewBox="0 0 320 205" role="img"
+           aria-label="Pie chart with sample study time data">
+        <path d="M115 100 L115 30 A70 70 0 0 1 156.14 156.63 Z"
+              fill="#399d9e"/>
+        <path d="M115 100 L156.14 156.63 A70 70 0 0 1 48.43 121.63 Z"
+              fill="#82c9be"/>
+        <path d="M115 100 L48.43 121.63 A70 70 0 0 1 115 30 Z"
+              fill="#b8dfa9"/>
+        <g font-size="12" fill="#36585a">
+          <rect x="205" y="53" width="12" height="12" rx="2" fill="#399d9e"/>
+          <text x="224" y="63">Reading 50%</text>
+          <rect x="205" y="83" width="12" height="12" rx="2" fill="#82c9be"/>
+          <text x="224" y="93">Writing 30%</text>
+          <rect x="205" y="113" width="12" height="12" rx="2" fill="#b8dfa9"/>
+          <text x="224" y="123">Review 20%</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="example">
+    <strong>Remember:</strong>
+    Give every graph a clear title, label its axes when needed,
+    and use accurate data. The values above are sample illustrations.
+  </div>
+</article>
+
+<!-- PAGE 3: ABOUT US -->
+<section id="about" style="background:white">
+
+  <div class="section-title">
+    <div class="eyebrow">GET TO KNOW US</div>
+    <h2>About Us</h2>
+    <p>Meet the student and teacher behind this Technical Writing project.</p>
+  </div>
+
+  <!-- STUDENT PROFILE: IMAGE REPLACES YM -->
+  <div class="about-profile">
+
+    <img src="hahahha.jpg"
+         alt="Photo of Mendoza, Yzet"
+         class="profile-photo">
+
+    <div>
+      <h3>Mendoza, Yzet</h3>
+      <p><strong>Institution:</strong> City College of Calapan</p>
+      <p><strong>Subject:</strong> Technical Writing</p>
+      <p><strong>Role:</strong> Student and Website Author</p>
+
+      <p>
+        I am Mendoza, Yzet, a student of City College of Calapan.
+        This website was created as part of our Technical Writing
+        project. Through this project, I aim to develop my writing,
+        research, and communication skills. I also want to learn how
+        to present information clearly and effectively using digital
+        technology. This website serves as a learning resource for
+        students who want to understand the principles and applications
+        of technical writing.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- TEACHER PROFILE: IMAGE REPLACES EM -->
+  <div class="teacher-profile">
+
+    <img src="mam.jpg"
+         alt="Photo of Ma’an Elma Jane Mitante"
+         class="profile-photo">
+
+    <div class="teacher-information">
+      <div class="eyebrow">OUR INSTRUCTOR</div>
+
+      <h3>Ma’an Elma Jane Mitante</h3>
+      <p class="teacher-position">Technical Writing Teacher</p>
+
+      <p>
+        Ma’am Elma Jane Mitante is our teacher who guides us in
+        learning the principles and practices of Technical Writing.
+        Through her instruction, students learn how to organize ideas,
+        communicate information clearly, prepare professional documents,
+        and apply proper writing techniques in academic and professional
+        settings.
+      </p>
+
+      <p>
+        As our instructor, she helps us understand the importance of
+        accuracy, clarity, organization, and professionalism in written
+        communication. Her guidance encourages us to improve our writing
+        abilities and develop skills that we can use in our future careers.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PAGE 4: CONTACT INFO -->
+<section class="contact-section" id="contact">
+  <div class="section-title">
+    <div class="eyebrow">GET IN TOUCH</div>
+    <h2>Contact Info</h2>
+    <p>For questions, feedback, or academic inquiries, you may contact me below.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Contact Details</h3>
+      <p><strong>Name:</strong> Mendoza, Yzet</p>
+      <p><strong>Institution:</strong> City College of Calapan</p>
+      <p><strong>Subject:</strong> Technical Writing</p>
+      <p><strong>Email:</strong>
+        <a href="mailto:yourname@example.com">mendozayzet0@gmail.com</a>
+      </p>
+      <p style="font-size:12px;margin-top:12px">
+        Replace the sample email with your actual email address.
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Send an Email</h3>
+      <p>Click below to open your default email application.</p>
+      <a class="btn"
+         href="mailto:yourname@example.com?subject=Technical%20Writing%20Website">
+        Contact Me →
+      </a>
+      <p style="font-size:12px;margin-top:15px">
+        This button opens your email application; it does not store messages.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Technical Writing | Learning Through Clear Communication</p>
+  <p>City College of Calapan</p>
+  <p>© 2026 Mendoza, Yzet — Educational Project</p>
+</footer>
+
+<script>
+const menuButton = document.querySelector('.menu-btn');
+const navigation = document.querySelector('#navigation');
+
+menuButton.addEventListener('click', () => {
+  const isOpen = navigation.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+});
+
+navigation.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navigation.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
